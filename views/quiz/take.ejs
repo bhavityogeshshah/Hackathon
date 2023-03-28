@@ -1,0 +1,85 @@
+<%- include('../dashboard/student') %>
+<div class="container">
+    <div class="columns">
+        <div class="column"></div>
+        <div class="column">
+            <h3 class="title is-4 text is-center"><%=quiz.title%> </h3>
+            <form action="/quiz/submit/<%=quiz.id%>" method="post">    
+                <div class="field">
+                    <input type="hidden" class="form-control" id="lat" name="latitude">
+                    <input type="hidden" class="form-control" id="long" name="longitude">
+                </div>
+                <div class="field">
+                    <label class="label">IP/Router ID</label>
+                    <input type="text" class="input is-danger is-rounded" name="ip">
+                </div>
+                <div class="field">
+                    <input type="button" class="button is-danger" value="Add Location"  name="location" onclick="getLocation()">
+                </div>
+                <div class="field">
+                    <label class="label">Question 1</label>
+                    <fieldset>
+                        <label class="radio">
+                            <input type="radio" class="radio is-danger is-rounded" name="q1">A
+                        </label>
+                        <label class="radio">
+                            <input type="radio" class="radio is-danger is-rounded" name="q1">B
+                        </label>
+                        <label class="radio">
+                            <input type="radio" class="radio is-danger is-rounded" name="q1">C
+                        </label>                        
+                    </fieldset>
+                </div>  
+                <div class="field">
+                    <label class="label">Question 2</label>
+                    <fieldset>
+                        <label class="radio">
+                            <input type="radio" class="radio is-danger is-rounded" name="q2">A
+                        </label>
+                        <label class="radio">
+                            <input type="radio" class="radio is-danger is-rounded" name="q2">B
+                        </label>
+                        <label class="radio">
+                            <input type="radio" class="radio is-danger is-rounded" name="q2">C
+                        </label>                        
+                    </fieldset>
+                </div>  
+                <div class="field">
+                    <label class="label">Question 3</label>
+                    <fieldset>
+                        <label class="radio">
+                            <input type="radio" class="radio is-danger is-rounded" name="q3">A
+                        </label>
+                        <label class="radio">
+                            <input type="radio" class="radio is-danger is-rounded" name="q3">B
+                        </label>
+                        <label class="radio">
+                            <input type="radio" class="radio is-danger is-rounded" name="q3">C
+                        </label>                        
+                    </fieldset>
+                </div>  
+                <button type="submit" class="button is-danger is-rounded">Submit Quiz</button>
+            </form>
+        </div>
+        <div class="column"></div>
+    </div>
+</div>
+
+<hr>
+<script>
+    var lat = document.getElementById("lat");
+    var long = document.getElementById("long");
+    function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+    }
+    function showPosition(position) {
+        lat.value=position.coords.latitude;
+        long.value=position.coords.longitude;
+
+    }
+
+</script>

@@ -1,0 +1,46 @@
+<%- include('../dashboard/instructor') %>
+<div class="container">
+    <div class="columns">
+        <div class="column"></div>
+        <div class="column">
+            <form action="/quiz" method="post">    
+                <div class="field">
+                    <label class="label">Title</label>
+                    <input type="text"  class="input is-danger is-rounded" name="title" value="<%=quiz.title%>">
+                </div>
+                <div class="field">
+                    <input type="hidden"  class="input is-danger is-rounded" id="lat" name="latitude">
+                    <input type="hidden"  class="input is-danger is-rounded" id="long" name="longitude">
+                </div>
+                <div class="field">
+                    <label class="label">IP/Router ID</label>
+                    <input type="text"  class="input is-danger is-rounded" name="ip">
+                </div>
+                <div class="field">
+                    <input class="button is-danger" value="Add Location" name="location" onclick="getLocation()">
+                </div>
+                <div class="field">
+                    <label class="checkbox">Accept Submissions</label>
+                    <input type="checkbox"  class="checkbox is-danger is-rounded" name="status" checked="">
+                </div>
+                <button type="submit" class="button is-danger">Create</button>
+            </form>
+        </div>
+        <div class="column"></div>
+    </div>
+</div>
+<script>
+    var lat = document.getElementById("lat");
+    var long = document.getElementById("long");
+    function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    }
+    }
+    function showPosition(position) {
+        lat.value=position.coords.latitude;
+        long.value=position.coords.longitude;
+
+    }
+
+</script>

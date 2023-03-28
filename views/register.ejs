@@ -1,0 +1,38 @@
+<%- include('./index') %>
+<br>
+<div class="columns">
+    <div class="column"></div>
+    <div class="column">
+<form action="/api/users/register" method="post">
+    <div class="field">
+        <label class="label">Email</label>
+        <input class="input is-danger is-rounded" type="text" name="email" value="<%=user.email%>">
+    </div>
+    <div class="field">
+        <label class="label">Full Name</label>
+        <input class="input is-danger is-rounded"  type="text" name="name">
+    </div>
+    <div class="field">
+        <label class="label">Password</label>
+        <input class="input is-danger is-rounded" type="password" name="password">
+    </div>
+    <div class="field">
+        <label class="label">Re-enter Password</label>
+        <input class="input is-danger is-rounded" type="password" name="password2">
+    </div>
+    <div class="field">
+        <input class="checkbox is-danger" type="checkbox" name="instructor">
+        <label class="checkbox"> I am an instructor.
+    </label>
+    </div>
+    <button type="submit" class="button is-danger">Signup</button>
+</form>
+
+<hr>
+
+<p>Already have an account? <a href="/login">Login</a></p>
+<p>Or go <a href="/">home</a>.</p>
+</div>
+<div class="column"></div>
+
+</div>

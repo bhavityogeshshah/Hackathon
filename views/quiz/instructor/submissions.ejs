@@ -1,0 +1,40 @@
+<%- include('../../dashboard/instructor') %>
+<div class="conatiner">
+    <div class="columns">
+        <div class="column"></div>
+    <div class="column">
+        <h2 class="subtitle is-3">Submission</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>User ID</th>
+                    <th>Proximity</th>
+                    <th>Student N/W IP</th>
+                    <th>Submitted At</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>User ID</th>
+                    <th>Proximity</th>
+                    <th>Student N/W IP</th>
+                    <th>Submitted At</th>
+                </tr>
+            </tfoot>
+            <tbody>
+                <% submissions.forEach(submission =>{ %>
+                    <tr>
+                        <td><%=submission.submission.user%></td>
+                        <td><%=submission.inClass%> mtr</td>
+                        <td><%=submission.submission.ip%></td>
+                        <td><%=submission.submission.date%> mtr</td>
+                    </tr>
+                <% }) %>
+            </tbody>
+
+        </table>
+
+    </div>
+    <div class="column"></div>
+</div>
+</div>
